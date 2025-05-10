@@ -1,0 +1,36 @@
+{
+  "name": "project-code-exporter",
+  "displayName": "Project Code Exporter",
+  "description": "Export your entire project code into a Word document, ignoring files in .gitignore.",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "main": "./extension.js",
+  "scripts": {
+    "vscode:prepublish": "npx webpack --mode production",
+    "compile": "npx webpack",
+    "watch": "npx webpack --watch",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "npx eslint ."
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0"
+  },
+  "dependencies": {
+    "docx": "^8.0.0",
+    "ignore": "^5.2.4"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeExporter.generate",
+        "title": "Export Project Code to Word/Text/Markdown"
+      },
+      {
+        "command": "codeExporter.update",
+        "title": "Update Project Code Word/Text/Markdown File"
+      }
+    ]
+  }
+}
